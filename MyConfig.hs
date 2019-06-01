@@ -141,6 +141,7 @@ DONE?
 floating_modifier $mod
 
 TODO
+# start eshell
 bindsym $mod+Return exec emacsclient -e "(open-eshell)" -c
 
 # toggle tiling / floating

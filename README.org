@@ -1,0 +1,1 @@
+Here is my config file for i3 (=config=) and a WIP script for generating it (=MyConfig.hs=, =RawConfig.hs=, =Config.hs=).

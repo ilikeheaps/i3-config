@@ -141,6 +141,9 @@ DONE?
 floating_modifier $mod
 
 TODO
+# border style/size
+default_border pixel 4
+
 # start eshell
 bindsym $mod+Return exec emacsclient -e "(open-eshell)" -c
 

@@ -141,6 +141,12 @@ DONE?
 floating_modifier $mod
 
 TODO
+# border style/size
+# NOTE this is deprecated in newer i3 versions
+new_window pixel 4
+# For newer versions:
+# default_border pixel 4
+
 # start eshell
 bindsym $mod+Return exec emacsclient -e "(open-eshell)" -c
 

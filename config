@@ -23,6 +23,12 @@ default_orientation auto
 # hide borders when there is only one window
 # hide_edge_borders smart
 
+# border style/size
+# NOTE this is deprecated in newer i3 versions
+new_window pixel 4
+# For newer versions:
+# default_border pixel 4
+
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
 set $up f

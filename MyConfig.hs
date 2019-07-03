@@ -102,7 +102,7 @@ config =  Config { keybinds = defaultMap
                  , (key 'l', ToggleFullscreen)
                  ]
     programKeys = [ (chord [Shift, Key 'q'], Kill)
-                  , (chord [Return], exec [] "i3-sensible-terminal")
+                  , (chord [Return], exec [] "konsole -e fish")
                   , (key 'p', exec [] "dmenu_run")
                   ]
     controlKeys = [ (chord [Shift, Key 'c'], Reload)

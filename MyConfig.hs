@@ -208,4 +208,24 @@ mode "resize" {
 
 bindsym $mod+d mode "resize"
 
+# mode for moving workspaces between outputs
+mode "workspace" {
+
+        bindsym $mod+Shift+$left move workspace to output left
+        bindsym $mod+Shift+$down move workspace to output down
+        bindsym $mod+Shift+$up move workspace to output up
+        bindsym $mod+Shift+$right move workspace to output right
+
+        bindsym $mod+$left focus output left
+        bindsym $mod+$down focus output down
+        bindsym $mod+$up focus output up
+        bindsym $mod+$right focus output right
+
+        bindsym $mod+v mode "default"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+v mode "workspace"
+
 -}

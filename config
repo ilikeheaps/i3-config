@@ -42,7 +42,9 @@ set $mod Mod4
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Shift+Return exec konsole -e fish
+# st doesn't respect dpi settings :(
+# alternatives: sakura?...
+bindsym $mod+Shift+Return exec st -f "Fira Mono:pixelsize=18" -e fish
 # start eshell
 bindsym $mod+Return exec emacsclient -e "(open-eshell)" -c
 

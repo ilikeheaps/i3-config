@@ -60,6 +60,12 @@ mirror 'm' = 'v'
 mirror 'k' = 'b'
 mirror _ = undefined
 
+terminal :: String
+terminal = "st -f \"Fira Mono:pixelsize=18\" -e fish"
+
+eshell :: String
+eshell = "emacsclient -e \"(open-eshell)\" -c"
+
 config :: Config
 config =  Config { keybinds = defaultMap
                  , modes = myModes
@@ -102,7 +108,7 @@ config =  Config { keybinds = defaultMap
                  , (key 'l', ToggleFullscreen)
                  ]
     programKeys = [ (chord [Shift, Key 'q'], Kill)
-                  , (chord [Return], exec [] "i3-sensible-terminal")
+                  , (chord [Return], exec [] terminal)
                   , (key 'p', exec [] "dmenu_run")
                   ]
     controlKeys = [ (chord [Shift, Key 'c'], Reload)
@@ -145,7 +151,7 @@ TODO
 default_border pixel 4
 
 # start eshell
-bindsym $mod+Return exec emacsclient -e "(open-eshell)" -c
+bindsym $mod+Return exec $eshell
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -203,6 +209,38 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+d mode "resize"
+# (currently disabled)
+# bindsym $mod+d mode "resize"
 
+# mode for moving workspaces between outputs
+mode "workspace" {
+
+        bindsym $mod+Shift+$left move workspace to output left
+        bindsym $mod+Shift+$down move workspace to output down
+        bindsym $mod+Shift+$up move workspace to output up
+        bindsym $mod+Shift+$right move workspace to output right
+
+        bindsym $mod+$left focus output left
+        bindsym $mod+$down focus output down
+        bindsym $mod+$up focus output up
+        bindsym $mod+$right focus output right
+
+        bindsym $mod+v mode "default"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+v mode "workspace"
+
+
+mode "launcher" {
+     bindsym s exec surf; mode "default"
+     bindsym g exec google; mode "default"
+     bindsym t exec $terminal; mode "default"
+     bindsym e exec $eshell; mode "default"
+
+     bindsym Escape mode "default"
+}
+
+bindsym $mod+d mode "launcher"
 -}

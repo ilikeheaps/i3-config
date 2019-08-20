@@ -36,6 +36,9 @@ set $down s
 set $left r
 set $right t
 
+set $terminal st -f "Fira Mono:pixelsize=18" -e fish
+set $eshell emacsclient -e "(open-eshell)" -c
+
 set $mod Mod4
 
 # use Mouse+$mod to drag floating windows to their wanted position
@@ -44,9 +47,9 @@ floating_modifier $mod
 # start a terminal
 # st doesn't respect dpi settings :(
 # alternatives: sakura?...
-bindsym $mod+Shift+Return exec st -f "Fira Mono:pixelsize=18" -e fish
+bindsym $mod+Shift+Return exec $terminal
 # start eshell
-bindsym $mod+Return exec emacsclient -e "(open-eshell)" -c
+bindsym $mod+Return exec $eshell
 
 # open emacs window (*scratch* buffer by default)
 bindsym $mod+h exec emacsclient -c

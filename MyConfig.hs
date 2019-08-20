@@ -60,6 +60,12 @@ mirror 'm' = 'v'
 mirror 'k' = 'b'
 mirror _ = undefined
 
+terminal :: String
+terminal = "st -f \"Fira Mono:pixelsize=18\" -e fish"
+
+eshell :: String
+eshell = "emacsclient -e \"(open-eshell)\" -c"
+
 config :: Config
 config =  Config { keybinds = defaultMap
                  , modes = myModes
@@ -102,7 +108,7 @@ config =  Config { keybinds = defaultMap
                  , (key 'l', ToggleFullscreen)
                  ]
     programKeys = [ (chord [Shift, Key 'q'], Kill)
-                  , (chord [Return], exec [] "st -f \"Fira Mono:pixelsize=18\" -e fish")
+                  , (chord [Return], exec [] terminal)
                   , (key 'p', exec [] "dmenu_run")
                   ]
     controlKeys = [ (chord [Shift, Key 'c'], Reload)
@@ -148,7 +154,7 @@ new_window pixel 4
 # default_border pixel 4
 
 # start eshell
-bindsym $mod+Return exec emacsclient -e "(open-eshell)" -c
+bindsym $mod+Return exec $eshell
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle

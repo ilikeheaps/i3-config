@@ -176,7 +176,8 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+d mode "resize"
+# (currently disabled)
+# bindsym $mod+d mode "resize"
 
 # mode for moving workspaces between outputs
 mode "workspace" {

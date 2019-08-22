@@ -207,6 +207,7 @@ mode "launcher" {
      bindsym g exec google; mode "default"
      bindsym t exec $terminal; mode "default"
      bindsym e exec $eshell; mode "default"
+     bindsym i exec open-info; mode "default"
 
      bindsym Escape mode "default"
 }

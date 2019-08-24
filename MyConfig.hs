@@ -237,7 +237,7 @@ bindsym $mod+v mode "workspace"
 
 
 mode "launcher" {
-     bindsym s exec surf; mode "default"
+     bindsym s exec run-surf; mode "default"
      bindsym g exec google; mode "default"
      bindsym t exec $terminal; mode "default"
      bindsym e exec $eshell; mode "default"

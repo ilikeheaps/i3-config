@@ -242,6 +242,8 @@ mode "launcher" {
      bindsym t exec $terminal; mode "default"
      bindsym e exec $eshell; mode "default"
      bindsym i exec open-info; mode "default"
+     bindsym c exec chromium-browser; mode "default"
+     bindsym k exec konsole -e fish; mode "default"
 
      bindsym Escape mode "default"
 }

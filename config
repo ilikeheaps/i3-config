@@ -22,6 +22,7 @@ default_orientation auto
 # doesnt work
 # hide borders when there is only one window
 # hide_edge_borders smart
+default_border normal 5
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient

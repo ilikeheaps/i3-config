@@ -21,6 +21,9 @@ default_orientation auto
 # hide_edge_borders smart
 default_border normal 5
 
+# border style/size
+default_border pixel 4
+
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
 set $up f
@@ -28,15 +31,18 @@ set $down s
 set $left r
 set $right t
 
+set $terminal sakura -x fish
+set $eshell emacsclient -e "(open-eshell)" -c
+
 set $mod Mod4
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Shift+Return exec sakura -x fish
+bindsym $mod+Shift+Return exec $terminal
 # start eshell
-bindsym $mod+Return exec emacsclient -e "(open-eshell)" -c
+bindsym $mod+Return exec $eshell
 
 # open emacs window (*scratch* buffer by default)
 bindsym $mod+h exec emacsclient -c
@@ -166,7 +172,39 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+d mode "resize"
+# (currently disabled)
+# bindsym $mod+d mode "resize"
+
+# mode for moving workspaces between outputs
+mode "workspace" {
+
+        bindsym $mod+Shift+$left move workspace to output left
+        bindsym $mod+Shift+$down move workspace to output down
+        bindsym $mod+Shift+$up move workspace to output up
+        bindsym $mod+Shift+$right move workspace to output right
+
+        bindsym $mod+$left focus output left
+        bindsym $mod+$down focus output down
+        bindsym $mod+$up focus output up
+        bindsym $mod+$right focus output right
+
+        bindsym $mod+v mode "default"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+v mode "workspace"
+
+mode "launcher" {
+     bindsym s exec surf; mode "default"
+     bindsym g exec google; mode "default"
+     bindsym t exec $terminal; mode "default"
+     bindsym e exec $eshell; mode "default"
+
+     bindsym Escape mode "default"
+}
+
+bindsym $mod+d mode "launcher"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)

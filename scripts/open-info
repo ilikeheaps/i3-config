@@ -1,0 +1,6 @@
+#!/bin/bash
+set -euo pipefail
+
+arg=$(dmenu -p "info node:" < /dev/null)
+
+emacsclient -c -e "(open-info \"$arg\")"

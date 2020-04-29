@@ -4,6 +4,7 @@
 #
 # This config file uses keycodes (bindsym) and was written with the Colemak layout in mind.
 
+# TODO move the script or remove
 # X session settings not related to the WM itself (layout, dpi, X background)
 exec xsession-settings
 
@@ -38,6 +39,8 @@ set $right t
 
 set $terminal st -f "Fira Mono:pixelsize=18" -e fish
 set $eshell emacsclient -e "(open-eshell)" -c
+
+set $scripts ~/.config/i3/scripts
 
 set $mod Mod4
 
@@ -203,11 +206,11 @@ mode "workspace" {
 bindsym $mod+v mode "workspace"
 
 mode "launcher" {
-     bindsym s exec run-surf; mode "default"
-     bindsym g exec google; mode "default"
+     bindsym s exec $scripts/run-surf; mode "default"
+     bindsym g exec $scripts/google; mode "default"
      bindsym t exec $terminal; mode "default"
      bindsym e exec $eshell; mode "default"
-     bindsym i exec open-info; mode "default"
+     bindsym i exec $scripts/open-info; mode "default"
      bindsym c exec chromium-browser; mode "default"
      bindsym k exec konsole -e fish; mode "default"
 
@@ -263,7 +266,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # Touchpad controls
 # (TODO make the script work)
-bindsym XF86TouchpadToggle exec touchpad-toggle.sh
+bindsym XF86TouchpadToggle exec $scripts/touchpad-toggle.sh
 
 # Media player controls
 # (Do not have playerctl)

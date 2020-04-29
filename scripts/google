@@ -1,0 +1,6 @@
+#!/bin/bash
+set -euo pipefail
+
+query=$(dmenu -p search < /dev/null)
+
+surf "google.com/search?q=$query"

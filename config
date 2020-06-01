@@ -34,7 +34,7 @@ set $down s
 set $left r
 set $right t
 
-set $terminal st -f "Fira Mono:pixelsize=18" -e fish
+set $terminal konsole -e fish
 set $eshell emacsclient -e "(open-eshell)" -c
 
 set $scripts ~/.config/i3/scripts
@@ -210,6 +210,7 @@ mode "launcher" {
      bindsym i exec $scripts/open-info; mode "default"
      bindsym c exec chromium-browser; mode "default"
      bindsym k exec konsole -e fish; mode "default"
+     bindsym n exec st -f "Fira Mono:pixelsize=18" -e fish; mode "default"
 
      bindsym Escape mode "default"
 }

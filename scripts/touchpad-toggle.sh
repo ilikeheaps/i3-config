@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -euo pipefail
 
 if synclient -l | grep "TouchpadOff .*=.*0" ; then

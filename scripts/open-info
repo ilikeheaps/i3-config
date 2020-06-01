@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -euo pipefail
 
 arg=$(dmenu -p "info node:" < /dev/null)

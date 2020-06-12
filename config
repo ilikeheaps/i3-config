@@ -25,7 +25,7 @@ default_orientation auto
 # hide_edge_borders smart
 
 # border style/size
-default_border pixel 4
+default_border pixel 5
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient

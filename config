@@ -298,5 +298,18 @@ mode "tablet" {
      bindsym Shift+s exec $scripts/tablet-scale.sh 1  0   0
      bindsym a mode "default"
      bindsym Escape mode "default"
+
+     # perform with modifier to immediately return
+     bindsym $mod+w exec $scripts/tablet-scale.sh 2  0   0; mode "default"
+     bindsym $mod+r exec $scripts/tablet-scale.sh 2  0   0.5; mode "default"
+     bindsym $mod+x exec $scripts/tablet-scale.sh 2  0   1; mode "default"
+     bindsym $mod+f exec $scripts/tablet-scale.sh 2  0.5 0; mode "default"
+     bindsym $mod+s exec $scripts/tablet-scale.sh 2  0.5 0.5; mode "default"
+     bindsym $mod+c exec $scripts/tablet-scale.sh 2  0.5 1; mode "default"
+     bindsym $mod+p exec $scripts/tablet-scale.sh 2  1   0; mode "default"
+     bindsym $mod+t exec $scripts/tablet-scale.sh 2  1   0.5; mode "default"
+     bindsym $mod+v exec $scripts/tablet-scale.sh 2  1   1; mode "default"
+     bindsym $mod+Shift+s exec $scripts/tablet-scale.sh 1  0   0; mode "default"
+
 }
 bindsym $mod+x mode "tablet"

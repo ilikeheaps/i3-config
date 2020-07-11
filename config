@@ -38,6 +38,8 @@ client.background       #ffffff
 
 focus_wrapping no
 
+for_window [title="Origin"] floating enable
+
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
 set $up f

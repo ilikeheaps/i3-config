@@ -44,6 +44,9 @@ y_scale=$(echo "s = ($H / $W * $X / $Y) ; if (s > 1) s else 1" | bc)
 x_offset_m=$(echo "($scale - $x_scale) * ($x_offset)" | bc)
 y_offset_m=$(echo "($scale - $y_scale) * ($y_offset)" | bc)
 
-echo xinput set-float-prop $dev_id 157 $x_scale 0 $x_offset_m 0 $y_scale $y_offset_m 0 0 $scale
-xinput set-float-prop "$dev_id" 157 $x_scale 0 $x_offset_m 0 $y_scale $y_offset_m 0 0 $scale
+# set coordinate translation matrix
+prop_id="Coordinate Transformation Matrix"
+
+echo xinput set-float-prop \"$dev_id\" \"$prop_id\" $x_scale 0 $x_offset_m 0 $y_scale $y_offset_m 0 0 $scale
+xinput set-float-prop "$dev_id" "$prop_id" $x_scale 0 $x_offset_m 0 $y_scale $y_offset_m 0 0 $scale
 echo done

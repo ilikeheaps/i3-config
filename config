@@ -221,6 +221,7 @@ mode "launcher" {
      bindsym t exec $terminal; mode "default"
      bindsym e exec $eshell; mode "default"
      bindsym i exec $scripts/open-info; mode "default"
+     bindsym Shift+c exec chromium-browser --incognito; mode "default"
      bindsym c exec chromium-browser; mode "default"
      bindsym k exec konsole -e fish; mode "default"
      bindsym n exec st -f "Fira Mono:pixelsize=18" -e fish; mode "default"

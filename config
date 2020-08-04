@@ -225,6 +225,8 @@ mode "launcher" {
      bindsym c exec chromium-browser; mode "default"
      bindsym k exec konsole -e fish; mode "default"
      bindsym n exec st -f "Fira Mono:pixelsize=18" -e fish; mode "default"
+     # open Tabs Outliner extension in Chromium
+     bindsym o exec chromium-browser --new-window "chrome-extension://eggkanocgddhmamlbiijnphhppkpkmkl/activesessionview.html?type=clone"; mode "default"
 
      bindsym Escape mode "default"
 }

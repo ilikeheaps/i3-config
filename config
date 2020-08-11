@@ -242,7 +242,7 @@ bar {
 }
 
 # screenshots with scrot
-bindsym Print exec scrot $(echo "$HOME/Pictures/Screens/%Y-%m-%d-%H:%M:%S-\$wx\$h.png")
+bindsym Print exec scrot $(echo "$HOME/archive/Media/Pictures/Screens/%Y-%m-%d-%H:%M:%S-\$wx\$h.png")
 
 # TODO can you do any mapping over modes? So you could get a mode but add a modifier to all keys or something?
 # TODO can you have a binding to return to the previous mode?

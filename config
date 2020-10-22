@@ -243,7 +243,11 @@ bindsym $mod+d mode "launcher"
 # finds out, if available)
 bar {
         status_command i3status
+        mode hide
+        modifier $mod
         tray_output primary
+        font -CTDB-Fira Mono-normal-normal-normal-*-20-*-*-*-m-0-iso10646-1
+        font pango:Fira Mono 14
 }
 
 # screenshots with scrot

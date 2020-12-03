@@ -35,14 +35,14 @@ y_offset=${3:-0} # value from 0 to 1
 #   x' = x * max(1, W / X * Y / H)
 #   y' = y * max(1, X / W * H / Y)
 # Take maximum for cutting tablet area; minimum for cutting display area
-x_scale=$(echo "s = ($W / $H * $Y / $X) ; if (s > 1) s else 1" | bc)
-y_scale=$(echo "s = ($H / $W * $X / $Y) ; if (s > 1) s else 1" | bc)
+x_scale=$(echo "s = ($W / $H * $Y / $X) ; if (s > 1) s else 1" | bc -l)
+y_scale=$(echo "s = ($H / $W * $X / $Y) ; if (s > 1) s else 1" | bc -l)
 
 # scale offsets from [0, 1] input range to correct values:
 #   offset=(0,0) -> x=0, y=0 -> x'=0, y'=0
 #   offset=(1,1) -> x=1, y=1 -> x'=1, y'=1
-x_offset_m=$(echo "($scale - $x_scale) * ($x_offset)" | bc)
-y_offset_m=$(echo "($scale - $y_scale) * ($y_offset)" | bc)
+x_offset_m=$(echo "($scale - $x_scale) * ($x_offset)" | bc -l)
+y_offset_m=$(echo "($scale - $y_scale) * ($y_offset)" | bc -l)
 
 # set coordinate translation matrix
 prop_id="Coordinate Transformation Matrix"

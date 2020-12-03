@@ -11,8 +11,8 @@ dev_id="HUION 420 Pen"
 H=57
 W=102
 # display area in pixels (any unit is fine, the ratio is what's important)
-X=1920
-Y=1200
+X=3440
+Y=1440
 
 # ------- ARGUMENTS ------
 scale=${1:-1}  # value from 1 to inf

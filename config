@@ -221,6 +221,7 @@ mode "workspace" {
 bindsym $mod+v mode "workspace"
 
 mode "launcher" {
+     bindsym h exec konsole -e ghci; mode "default"
      bindsym s exec $scripts/run-surf; mode "default"
      bindsym g exec $scripts/google; mode "default"
      bindsym t exec $terminal; mode "default"

@@ -224,6 +224,7 @@ mode "launcher" {
      bindsym h exec konsole -e ghci; mode "default"
      bindsym s exec $scripts/run-surf; mode "default"
      bindsym g exec $scripts/google; mode "default"
+     bindsym v exec pavucontrol; mode "default"
      bindsym t exec $terminal; mode "default"
      bindsym e exec $eshell; mode "default"
      bindsym i exec $scripts/open-info; mode "default"

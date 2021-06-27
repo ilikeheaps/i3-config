@@ -25,9 +25,9 @@ default_orientation auto
 default_border pixel 6
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #e07060 #e07060 #ffffff #2e9ef4   #e07060
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.focused          #e07060 #e07060 #000000 #2e9ef4   #e07060
+client.focused_inactive #2340c0 #2340c0 #ffffff #484e50   #2340c0
+client.unfocused        #333333 #222222 #bbbbbb #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 

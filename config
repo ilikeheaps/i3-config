@@ -22,7 +22,7 @@ default_orientation auto
 # hide_edge_borders smart
 
 # border style/size
-default_border pixel 5
+default_border pixel 6
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #e07060 #e07060 #ffffff #2e9ef4   #e07060

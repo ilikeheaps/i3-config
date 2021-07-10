@@ -1,0 +1,18 @@
+{ "tablet": {
+    "device_id": "XP-PEN STAR G640 Pen stylus",
+    "__comment_1": [
+      "xinput device id/name; obtained from \"xinput list\", confirmed with \"xinput test <id>\"",
+      "numeric IDs seem to be somewhat randomly assigned on startup so better use name"
+    ],
+    "width": 32000,
+    "height": 20000,
+    "__comment_2": [
+      "this is the actual resolution of the tablet (revision A, USB product ID: 0x0094)",
+      "(revision B is halved in each dimension)"
+    ]
+  },
+  "display": {
+    "width": 3440,
+    "height": 1440
+  }
+}

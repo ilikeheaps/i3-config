@@ -1,15 +1,17 @@
 #!/usr/bin/env fish
 # (assume square pixels like in most modern displays)
 
+set DIR (dirname (status -f))
+set CONF "$DIR/tablet-configuration.json"
+
 ## devices settings
-# TODO would be nice to have these in separate file for sharing with other scripts etc
 ### tablet
-set dev_id "XP-PEN STAR G640 Pen stylus"
-set t_w 32000
-set t_h 20000
+set dev_id (jq -r ".tablet.device_id" "$CONF")
+set t_w (jq -r ".tablet.width" "$CONF")
+set t_h (jq -r ".tablet.height" "$CONF")
 ### display
-set d_w 3440
-set d_h 1440
+set d_w (jq -r ".display.width" "$CONF")
+set d_h (jq -r ".display.height" "$CONF")
 
 ## helper functions
 # "math max" is available in newer fish version (? > 3.1.2)

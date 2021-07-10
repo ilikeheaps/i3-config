@@ -5,7 +5,7 @@ set -euo pipefail
 . $(dirname $0)/tablet-settings.sh
 
 # ------- ARGUMENTS ------
-scale=${1:-1}  # value from 1 to inf
+scale=${1:-1}  # value from 0 to inf
 # scale=1 will use maximal area of the tablet while maintaining ratio
 # scale=k will scale that area by 1/k
 # This can be used both for decreasing display area (scale>1) and decreasing tablet area (scale<1)

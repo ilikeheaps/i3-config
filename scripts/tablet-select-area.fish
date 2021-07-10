@@ -1,5 +1,6 @@
 #!/usr/bin/env fish
 # (assume square pixels like in most modern displays)
+# dependencies: jq, xrectsel, bc
 
 set DIR (dirname (status -f))
 set CONF "$DIR/tablet-configuration.json"

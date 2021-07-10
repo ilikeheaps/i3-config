@@ -1,4 +1,5 @@
 # settings for tablet scripts
+# (dependencies: jq)
 
 CONF="$(dirname $0)/tablet-configuration.json"
 

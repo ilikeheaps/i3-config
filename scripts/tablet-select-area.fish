@@ -70,4 +70,8 @@ set offset_y (math "$s_y / $d_h")
 
 ## set xinput property to apply mapping
 set prop_id "Coordinate Transformation Matrix"
+echo matrix:
+echo $scale_x 0 $offset_x
+echo 0 $scale_y $offset_y
+echo 0 0 1
 xinput set-float-prop "$dev_id" "$prop_id" $scale_x 0 $offset_x 0 $scale_y $offset_y 0 0 1

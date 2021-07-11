@@ -350,6 +350,7 @@ mode "tablet" {
 
      # perform with modifire to immediately return
      bindsym $mod+s exec $scripts/tablet-select-area.fish; mode "default"
+     # ^ TODO this doesn't work properly, need to release 's' quickly
      bindsym $mod+f exec $scripts/tablet-scale.sh 1 0 0; mode "default"
      bindsym $mod+t exec $scripts/tablet-scale.sh 1 0 0; exec $scripts/tablet-select-area.fish; mode "default"
 

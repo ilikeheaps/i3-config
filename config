@@ -315,7 +315,7 @@ bindsym XF86TouchpadToggle exec $scripts/touchpad-toggle.sh
 # bindsym XF86AudioPrev exec playerctl previous
 
 # Somewhat crude tablet controls
-mode "tablet" {
+mode "tablet-grid" {
      bindsym w exec $scripts/tablet-scale.sh 2  0   0
      bindsym r exec $scripts/tablet-scale.sh 2  0   0.5
      bindsym x exec $scripts/tablet-scale.sh 2  0   1
@@ -340,6 +340,22 @@ mode "tablet" {
      bindsym $mod+t exec $scripts/tablet-scale.sh 2  1   0.5; mode "default"
      bindsym $mod+v exec $scripts/tablet-scale.sh 2  1   1; mode "default"
      bindsym $mod+Shift+s exec $scripts/tablet-scale.sh 1  0   0; mode "default"
+}
 
+# less crude tablet controls
+mode "tablet" {
+     bindsym s exec $scripts/tablet-select-area.fish
+     bindsym f exec $scripts/tablet-scale.sh 1 0 0
+     bindsym t exec $scripts/tablet-scale.sh 1 0 0; exec $scripts/tablet-select-area.fish
+
+     # perform with modifire to immediately return
+     bindsym $mod+s exec $scripts/tablet-select-area.fish; mode "default"
+     bindsym $mod+f exec $scripts/tablet-scale.sh 1 0 0; mode "default"
+     bindsym $mod+t exec $scripts/tablet-scale.sh 1 0 0; exec $scripts/tablet-select-area.fish; mode "default"
+
+     bindsym $mod+x mode "tablet-grid"
+     bindsym x mode "tablet-grid"
+     bindsym a mode "default"
+     bindsym Escape mode "default"
 }
 bindsym $mod+x mode "tablet"

@@ -101,7 +101,6 @@ unlines1 ss = concat . intersperse "\n" $ ss
 makeBlock :: String -> [String] -> [String]
 makeBlock lab ss = (if lab == "" then "{" else lab ++" {") : map indent ss ++ ["}"]
 
--- TODO this is slow. Would need some stuff like String -> String for fast append
 printConfig :: Config -> String
 printConfig (Config options) = unlines $ fmap printOption options
 

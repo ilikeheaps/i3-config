@@ -84,7 +84,6 @@ mkConfig c = R.Config
     maybeOptionComment str f m =
       maybe [Comment str] (singleton . f) m
 
-
 printConfig :: Config -> String
 printConfig c = R.printConfig $ mkConfig c
 

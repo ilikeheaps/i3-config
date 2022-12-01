@@ -19,10 +19,6 @@ changeLayout l = ChangeLayout l
 toggleSplit :: Command
 toggleSplit = ToggleSplit
 
--- do I want to make lower case aliases for everything? Or do I want to change my syntax highlighting?
-focus :: Direction -> Command
-focus = Focus
-
 hsplit, vsplit :: Layout
 hsplit = Split Horizontal
 vsplit = Split Vertical
@@ -80,17 +76,19 @@ config =  Config { keybinds = defaultMap
     mod = Mod 4
     baseMap = concat
       [ mapWith Shift moveKeys
-      , focusKeys
+      , focusDirectionKeys
+      , focusTreeKeys
       , layoutKeys
       , programKeys
       , controlKeys
       , modeKeys
       ]
     moveKeys = directionBinds Move
-    focusKeys = directionBinds Focus
-                ++ [ (key 'w', focus Parent)
-                   , (key 'a', focus Child)
-                   ]
+    focusDirectionKeys = directionBinds FocusDirection
+    focusTreeKeys = (second FocusTree) <$>
+                    [ (key 'w', Parent)
+                    , (key 'a', Child)
+                    ]
     directionBinds f = map (second f . first toChord) dirKeys
     dirKeys = map (first Key)
               [ ('f', Up)

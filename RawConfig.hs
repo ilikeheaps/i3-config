@@ -57,48 +57,8 @@ data Orientation = Auto
 
 data KeyBinding = KeyBinding KeyChord Command
 
-{- TODO Move can't accept Parent | Child
-It would be cool if it could though:
-- Move Parent seems obvious
-- Move Child would create a new node with a single child
-
-Possible solution:
-
-class MetaSimpleDirection a where
-  up :: a ; down :: a ; left :: a ; right :: a
-class MetaTreeDirection a where
-  parent :: a; child :: a
-data SimpleDirection = Up | Down | Left | Right
-data TreeDirection = Parent | Child  --  | NextSibling | PrevSibling
-data FocusDirection = Simple SimpleDirection | Tree TreeDirection
-instance MetaSimpleDirection SimpleDirection where
-  up = Up; down = Down; left = Left; right = Right
-instance MetaSimpleDirection FocusDirection where
-  up = Simple Up; down = Simple Down; left = Simple Left; right = Simple Right
-instance MetaTreeDirection FocusDirection where
-  parent = Tree Parent ; child = Tree Child
-
-~~ class MoveArgument a where...
-
-Another one:
-data Direction = U | D | L | R
-data TreeDirection = ...
-Focus (Either Direction TreeDirection)
-
-Another one:
-data Direction
-data TreeDirection
-data FocusArg = Visual Direction | Tree TreeDirection
-Focus FocusArg
--}
-
--- Move (Either Direction String)
--- Move (Direction :+: String)
--- MoveToWorkspace String
--- Move {from :: Movable, target :: Either Direction Movable}
--- type Movable = Workspace :+: Direction
-
-data Command = Focus Direction
+data Command = FocusDirection Direction
+             | FocusTree TreeRelation
              | Move Direction
              | ChangeMode String
              | ChangeLayout Layout
@@ -115,7 +75,10 @@ data Command = Focus Direction
 
 data Workspace = NamedWorkspace String
 
-data Direction = Up | Down | Left | Right | Parent | Child
+-- direction as seen on the display
+data Direction = Up | Down | Left | Right
+
+data TreeRelation = Next | Previous | Parent | Child
 
 type KeyChord = [Key]
 
@@ -197,7 +160,8 @@ printKey Return = "Return"
 printKey Print = "Print"
 
 printCommand :: Command -> String
-printCommand (Focus d) = "focus "++printDirection d
+printCommand (FocusDirection d) = "focus "++printDirection d
+printCommand (FocusTree d) = "focus "++printTreeRelation d
 printCommand (Move d) = "move "++printDirection d
 printCommand (ChangeMode name) = "mode "++name
 printCommand (DoSplit a) = "split " ++ printAxis a
@@ -217,8 +181,12 @@ printDirection Up = "up"
 printDirection Down = "down"
 printDirection Left = "left"
 printDirection Right = "right"
-printDirection Parent = "parent"
-printDirection Child = "child"
+
+printTreeRelation :: TreeRelation -> String
+printTreeRelation Next = "next"
+printTreeRelation Previous = "prev"
+printTreeRelation Parent = "parent"
+printTreeRelation Child = "child"
 
 -- TODO I don't think one should do this (classes purely for overloading)
 -- could call it AbstractKeyBinding to remind of terrible languages

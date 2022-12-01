@@ -11,6 +11,7 @@ module Config ( module Config
               , Key(..)
               , Output(..)
               , Direction(..)
+              , TreeRelation(..)
               , Axis(..)
               , Layout(..)
               , exec

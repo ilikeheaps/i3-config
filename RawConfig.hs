@@ -133,13 +133,12 @@ printExec (Exec flags command) =
 
 printLayout :: Layout -> String
 printLayout Stacked = "stacking"
--- TODO confirm
 printLayout Tabbed = "tabbed"
-printLayout (Split a) = "split "++printAxis a
+printLayout (Split a) = "split"++printAxis a
 
 printAxis :: Axis -> String
-printAxis Horizontal = "horizontal"
-printAxis Vertical = "vertical"
+printAxis Horizontal = "h"
+printAxis Vertical = "v"
 
 printString :: String -> String
 printString s = "\"" ++ s ++ "\""

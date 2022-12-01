@@ -25,7 +25,7 @@ default_orientation auto
 
 # border style/size
 # TODO[script] configure depending on screen DPI (can't in plain i3 config)
-default_border pixel 6
+default_border pixel 4
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #e07060 #e07060 #000000 #2e9ef4   #e07060

@@ -1,3 +1,5 @@
+# -*- eval: (rainbow-mode 1) -*-
+# ^ Emacs settings
 # my i3 config file based on i3 config file (v4)
 
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!

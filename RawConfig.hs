@@ -29,8 +29,10 @@ import Data.List(intersperse, concat)
 
 -- NOTE sum types would be cool here (-> data types a la carte)
 
--- this is a type representing i3 config files as they are
--- TODO maybe should instead make a more abstract type? Or maybe it's good for compatibility to have this type closer to output format and build abstractions on top of it?
+{-
+This is a type representing i3 config files, as plain as possible (and as "typeful" as possible)
+- doesn't include some elements like variables, as those can be moved to Haskell code
+-}
 newtype Config = Config [Option]
 
 data Option = ModeDefinition String [KeyBinding]
@@ -41,7 +43,7 @@ data Option = ModeDefinition String [KeyBinding]
             | WorkspaceLayout Layout
             | DefaultOrientation Orientation
             | BarDefinition BarSettings
-            | Comment String
+            | Comment String -- TODO what is this for?
 
 data BarSettings = BarSettings {statusCommand :: String, trayOutput :: Output}
 

@@ -149,7 +149,6 @@ printKeyBinding (KeyBinding keys cmd) = "bindsym "++printKeyChord keys++" "++pri
 printKeyChord :: KeyChord -> String
 printKeyChord keys = concat . intersperse "+" . map printKey $ keys
 
--- TODO what's the proper way to cast a Char onto String?
 printKey :: Key -> String
 printKey (Key c) = [c]
 printKey (Mod n) = "Mod" ++ show n

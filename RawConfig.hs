@@ -43,7 +43,7 @@ data Option = ModeDefinition String [KeyBinding]
             | WorkspaceLayout Layout
             | DefaultOrientation Orientation
             | BarDefinition BarSettings
-            | Comment String -- TODO what is this for?
+            | Comment String -- for marking sections of generated config
 
 data BarSettings = BarSettings {statusCommand :: String, trayOutput :: Output}
 

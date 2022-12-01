@@ -57,6 +57,7 @@ data Axis = Horizontal | Vertical
 
 data Orientation = Auto
 
+-- TODO should have exactly one non-modifier key
 data KeyBinding = KeyBinding KeyChord Command
 
 data Command = FocusDirection Direction
@@ -83,6 +84,7 @@ data TreeRelation = Next | Previous | Parent | Child
 
 type KeyChord = [Key]
 
+-- TODO should include Shift
 data Modifier = Mod1 | Mod2 | Mod3 | Mod4 | Mod5 | Mod6 | Mod7
 
 data Key = Key Char

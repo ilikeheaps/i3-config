@@ -69,6 +69,15 @@ exec f s = DoExec $ Exec f s
 globalExec :: [ExecFlag] -> String -> Option
 globalExec f s = GlobalExec $ Exec f s
 
+mod1, mod2, mod3, mod4, mod5, mod6, mod7 :: Key
+mod1 = KeyMod Mod1
+mod2 = KeyMod Mod2
+mod3 = KeyMod Mod3
+mod4 = KeyMod Mod4
+mod5 = KeyMod Mod5
+mod6 = KeyMod Mod6
+mod7 = KeyMod Mod7
+
 mkConfig :: Config -> R.Config
 mkConfig c = R.Config
   $ [globalExec f cmd | (f, cmd) <- startupCommands c]

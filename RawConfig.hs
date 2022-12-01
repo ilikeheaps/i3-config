@@ -83,8 +83,10 @@ data TreeRelation = Next | Previous | Parent | Child
 
 type KeyChord = [Key]
 
+data Modifier = Mod1 | Mod2 | Mod3 | Mod4 | Mod5 | Mod6 | Mod7
+
 data Key = Key Char
-         | Mod Int -- should be only from 1 to 7
+         | KeyMod Modifier
          | Shift
          | Escape
          | Return
@@ -151,11 +153,20 @@ printKeyChord keys = concat . intersperse "+" . map printKey $ keys
 
 printKey :: Key -> String
 printKey (Key c) = [c]
-printKey (Mod n) = "Mod" ++ show n
+printKey (KeyMod m) = printModifier m
 printKey Shift = "Shift"
 printKey Escape = "Escape"
 printKey Return = "Return"
 printKey Print = "Print"
+
+printModifier :: Modifier -> String
+printModifier Mod1 = "Mod1"
+printModifier Mod2 = "Mod2"
+printModifier Mod3 = "Mod3"
+printModifier Mod4 = "Mod4"
+printModifier Mod5 = "Mod5"
+printModifier Mod6 = "Mod6"
+printModifier Mod7 = "Mod7"
 
 printCommand :: Command -> String
 printCommand (FocusDirection d) = "focus "++printDirection d

@@ -73,7 +73,7 @@ config =  Config { keybinds = defaultMap
                  , font = Just "pango:DejaVu Sans Mono 8"
                  }
   where
-    mod = Mod 4
+    mod = mod4
     baseMap = concat
       [ mapWith Shift moveKeys
       , focusDirectionKeys
@@ -110,7 +110,7 @@ config =  Config { keybinds = defaultMap
                   , (key 'p', exec [] "dmenu_run")
                   ]
     controlKeys = [ (chord [Shift, Key 'c'], Reload)
-                  , (chord [Shift, Mod 1, Key 'x'], Restart)
+                  , (chord [Shift, mod1, Key 'x'], Restart)
                   , (chord [Shift, Key 'x'], exitCmd)
                   ]
     modeKeys = [ (key 'h', ChangeMode "insert") ]

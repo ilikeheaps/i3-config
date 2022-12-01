@@ -1,1 +1,17 @@
-Here is my config file for i3 (=config=) and a WIP script for generating it (=MyConfig.hs=, =RawConfig.hs=, =Config.hs=).
+WIP script for generating i3 config.
+
+To get generated config:
+#+begin_src bash
+  runghc MyConfig.hs > config-generated
+#+end_src
+
+* TODO Clean up the code (see TODOs in code)
+* WAIT Merge master (into this branch)
+* WAIT Replace the config with partially generated config
+Move parts that aren't generated to =config-plain=
+
+So that you can run:
+#+begin_src bash
+  cat <(runghc MyConfig.hs) config-plain > config
+#+end_src
+

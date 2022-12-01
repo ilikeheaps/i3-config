@@ -50,7 +50,7 @@ data BarSettings = BarSettings {statusCommand :: String, trayOutput :: Output}
 data Output = Primary
 
 data Exec = Exec [ExecFlag] String
--- TODO actually could make Stacked and Tabbed one constructor parametrised by Axis
+
 data Layout = Stacked | Tabbed | Split Axis
 
 data Axis = Horizontal | Vertical

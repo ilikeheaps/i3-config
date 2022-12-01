@@ -173,7 +173,6 @@ printCommand ToggleFullscreen = "fullscreen toggle"
 printCommand Reload = "reload"
 printCommand Restart = "restart"
 printCommand (FocusWorkspace (NamedWorkspace s)) = "focus workspace "++s
--- TODO check if parens aren't needed
 printCommand (c1 `Seq` c2) = printCommand c1 ++ "; " ++ printCommand c2
 
 printDirection :: Direction -> String

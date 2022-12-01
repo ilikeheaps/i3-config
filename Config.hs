@@ -100,8 +100,8 @@ printConfig c = R.printConfig $ mkConfig c
 with :: Key -> (KeyChord, Command) -> (KeyChord, Command)
 with m b = first (m:) b
 
-mapWith :: Key -> [(KeyChord, Command)] -> [(KeyChord, Command)]
-mapWith k = map (with k)
+withMod :: Modifier -> (KeyChord, Command) -> (KeyChord, Command)
+withMod m = with (KeyMod m)
 
 -- TODO could check if bindings don't overlap, modes are reachable etc.
 configureMap :: [(KeyChord, Command)] -> [KeyBinding]

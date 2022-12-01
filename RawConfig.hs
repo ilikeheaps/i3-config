@@ -84,12 +84,14 @@ data TreeRelation = Next | Previous | Parent | Child
 
 type KeyChord = [Key]
 
--- TODO should include Shift
-data Modifier = Mod1 | Mod2 | Mod3 | Mod4 | Mod5 | Mod6 | Mod7
+-- XXX Shift is treated specially in some cases, e.g. handling floating containers:
+-- resizing while holding shift maintains aspect ratio (if you bind Shift to floating_modifier
+-- you can only resize while maintaing aspect ratio)
+data Modifier = Shift
+              | Mod1 | Mod2 | Mod3 | Mod4 | Mod5 | Mod6 | Mod7
 
 data Key = Key Char
          | KeyMod Modifier
-         | Shift
          | Escape
          | Return
          | Print
@@ -156,12 +158,12 @@ printKeyChord keys = concat . intersperse "+" . map printKey $ keys
 printKey :: Key -> String
 printKey (Key c) = [c]
 printKey (KeyMod m) = printModifier m
-printKey Shift = "Shift"
 printKey Escape = "Escape"
 printKey Return = "Return"
 printKey Print = "Print"
 
 printModifier :: Modifier -> String
+printModifier Shift = "Shift"
 printModifier Mod1 = "Mod1"
 printModifier Mod2 = "Mod2"
 printModifier Mod3 = "Mod3"

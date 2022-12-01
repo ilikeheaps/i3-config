@@ -75,7 +75,7 @@ config =  Config { keybinds = defaultMap
   where
     mod = Mod4
     baseMap = concat
-      [ mapWith Shift moveKeys
+      [ map (withMod Shift) moveKeys
       , focusDirectionKeys
       , focusTreeKeys
       , layoutKeys
@@ -105,13 +105,13 @@ config =  Config { keybinds = defaultMap
                  , (key 'i', changeLayout Tabbed)
                  , (key 'l', ToggleFullscreen)
                  ]
-    programKeys = [ (chord [Shift, Key 'q'], Kill)
+    programKeys = [ (chord [KeyMod Shift, Key 'q'], Kill)
                   , (chord [Return], exec [] terminal)
                   , (key 'p', exec [] "dmenu_run")
                   ]
-    controlKeys = [ (chord [Shift, Key 'c'], Reload)
-                  , (chord [Shift, mod1, Key 'x'], Restart)
-                  , (chord [Shift, Key 'x'], exitCmd)
+    controlKeys = [ (chord [KeyMod Shift, Key 'c'], Reload)
+                  , (chord [KeyMod Shift, mod1, Key 'x'], Restart)
+                  , (chord [KeyMod Shift, Key 'x'], exitCmd)
                   ]
     modeKeys = [ (key 'h', ChangeMode "insert") ]
     noModKeys = [ (toChord Print, exec []
@@ -129,7 +129,7 @@ config =  Config { keybinds = defaultMap
     myModes =
       [ -- ("normal", escapedMap)
       -- insert mode needs modifier even for noModKeys
-        ("insert", mapWith (KeyMod mod) $ escapedMap)
+        ("insert", map (withMod mod) $ escapedMap)
       ]
     escapedMap = (chord [Escape], ChangeMode "default"):baseMap ++ noModKeys
     exitCmd =  exec [] "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"

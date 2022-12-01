@@ -37,7 +37,7 @@ newtype Config = Config [Option]
 
 data Option = ModeDefinition String [KeyBinding]
             | BindingDefinition KeyBinding
-            | FloatingModifier Key -- TODO check if only a single key is allowed
+            | FloatingModifier Modifier
             | GlobalExec Exec
             | Font String
             | WorkspaceLayout Layout
@@ -117,7 +117,7 @@ printOption (DefaultOrientation o) = "default_orientation "++printOrientation o
   where printOrientation Auto = "auto"
 printOption (BarDefinition b) = printBarSettings b
 printOption (Comment s) = unlines1 . fmap ("# "++) .  lines $ s
-printOption (FloatingModifier m) = "floating_modifier "++printKey m
+printOption (FloatingModifier m) = "floating_modifier "++printModifier m
 
 printBarSettings :: BarSettings -> String
 printBarSettings b =

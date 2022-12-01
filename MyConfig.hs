@@ -73,7 +73,7 @@ config =  Config { keybinds = defaultMap
                  , font = Just "pango:DejaVu Sans Mono 8"
                  }
   where
-    mod = mod4
+    mod = Mod4
     baseMap = concat
       [ mapWith Shift moveKeys
       , focusDirectionKeys
@@ -129,7 +129,7 @@ config =  Config { keybinds = defaultMap
     myModes =
       [ -- ("normal", escapedMap)
       -- insert mode needs modifier even for noModKeys
-        ("insert", mapWith mod $ escapedMap)
+        ("insert", mapWith (KeyMod mod) $ escapedMap)
       ]
     escapedMap = (chord [Escape], ChangeMode "default"):baseMap ++ noModKeys
     exitCmd =  exec [] "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"

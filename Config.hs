@@ -17,6 +17,7 @@ module Config ( module Config
               , ExecFlag(..)
               , Option(WorkspaceLayout, DefaultOrientation)
               , Orientation(..)
+              , Modifier(..)
               )
 where
 
@@ -45,7 +46,7 @@ data Config = Config
                 -- TODO would be nice to specify this
                 , otherOptions :: [Option]
                 , statusBar :: Maybe BarSettings
-                , floatingModifier :: Maybe Key
+                , floatingModifier :: Maybe Modifier
                 , font :: Maybe String
                 }
 

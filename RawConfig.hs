@@ -189,26 +189,3 @@ printTreeRelation Next = "next"
 printTreeRelation Previous = "prev"
 printTreeRelation Parent = "parent"
 printTreeRelation Child = "child"
-
--- TODO I don't think one should do this (classes purely for overloading)
--- could call it AbstractKeyBinding to remind of terrible languages
-class MetaKeyBinding a where
-  bindsym :: [Key] -> Command -> a
-
-instance MetaKeyBinding KeyBinding where
-  bindsym keys = KeyBinding keys
-
-instance MetaKeyBinding Option where
-  bindsym keys cmd = BindingDefinition $ bindsym keys cmd
-
-class MetaExec a where
-  exec :: [ExecFlag] -> String -> a
-
-instance MetaExec Option where
-  exec f c = GlobalExec $ Exec f c
-
-instance MetaExec Exec where
-  exec = Exec
-
-instance MetaExec Command where
-  exec f c = DoExec $ Exec f c

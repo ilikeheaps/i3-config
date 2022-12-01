@@ -14,7 +14,6 @@ module Config ( module Config
               , TreeRelation(..)
               , Axis(..)
               , Layout(..)
-              , exec
               , ExecFlag(..)
               , Option(WorkspaceLayout, DefaultOrientation)
               , Orientation(..)
@@ -30,7 +29,7 @@ import Prelude (String, Char
                --, unlines
                , map
                --, fmap
-               , (++), ($), (.)
+               , (++), ($), (.), (<$>)
                , uncurry
                -- , undefined
                , Maybe(..), maybe
@@ -64,15 +63,21 @@ emptyConfig = Config
 singleton :: a -> [a]
 singleton = (:[])
 
+exec :: [ExecFlag] -> String -> Command
+exec f s = DoExec $ Exec f s
+
+globalExec :: [ExecFlag] -> String -> Option
+globalExec f s = GlobalExec $ Exec f s
+
 mkConfig :: Config -> R.Config
 mkConfig c = R.Config
-  $ [exec f cmd | (f, cmd) <- startupCommands c]
+  $ [globalExec f cmd | (f, cmd) <- startupCommands c]
   ++ otherOptions c
   ++ maybeOptionComment "no font option" Font (font c)
   ++ maybeOptionComment "no status bar option" BarDefinition (statusBar c)
   ++ maybeOptionComment "no floating modifier" FloatingModifier (floatingModifier c)
   ++ [Comment "default keymap:"]
-  ++ configureMap (keybinds c)
+  ++ (BindingDefinition <$> configureMap (keybinds c))
   ++ [Comment "modes:"]
   ++ map (uncurry configureModeMap) (modes c)
   where
@@ -90,8 +95,8 @@ mapWith :: Key -> [(KeyChord, Command)] -> [(KeyChord, Command)]
 mapWith k = map (with k)
 
 -- TODO could check if bindings don't overlap, modes are reachable etc.
-configureMap :: MetaKeyBinding a => [(KeyChord, Command)] -> [a]
-configureMap bs = map (\(k, c) -> bindsym k c) bs
+configureMap :: [(KeyChord, Command)] -> [KeyBinding]
+configureMap bs = map (\(k, c) -> KeyBinding k c) bs
 
 configureModeMap :: String -> [(KeyChord, Command)] -> Option
 configureModeMap name binds = ModeDefinition name . configureMap $ binds

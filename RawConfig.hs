@@ -72,7 +72,6 @@ data Command = FocusDirection Direction
              | Reload
              | Restart
              | FocusWorkspace Workspace
-             -- TODO check/set precedence `Seq`
              | Seq Command Command
 
 data Workspace = NamedWorkspace String

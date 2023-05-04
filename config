@@ -201,8 +201,8 @@ mode "resize" {
 # bindsym $mod+d mode "resize"
 
 # mode for moving workspaces between outputs
+bindsym $mod+v mode "workspace"
 mode "workspace" {
-
         bindsym $mod+Shift+$left move workspace to output left
         bindsym $mod+Shift+$down move workspace to output down
         bindsym $mod+Shift+$up move workspace to output up
@@ -217,8 +217,6 @@ mode "workspace" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-
-bindsym $mod+v mode "workspace"
 
 mode "launcher" {
      bindsym h exec konsole -e ghci; mode "default"

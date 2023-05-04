@@ -218,6 +218,14 @@ mode "workspace" {
         bindsym Escape mode "default"
 }
 
+# bindsym $mod+v mode "sound"
+# mode "sound" {
+#   bindsym s exec ~/scripts/alsa/speakers.sh; mode "default"
+#   bindsym h exec ~/scripts/alsa/headphones.sh; mode "default"
+#
+#   bindsym Escape mode "default"
+# }
+
 mode "launcher" {
      bindsym h exec konsole -e ghci; mode "default"
      bindsym s exec $scripts/run-surf; mode "default"

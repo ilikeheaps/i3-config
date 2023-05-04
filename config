@@ -62,6 +62,11 @@ bindsym $mod+Shift+Return exec $terminal
 # start eshell
 bindsym $mod+Return exec $eshell
 
+# TODO?
+# rename window/container
+# bindsym $mod+g exec echo `echo foo | dmenu` # $scripts/rename-focused.sh
+# bindsym $mod+Shift+g title_format "%title"
+
 # open emacs window (*scratch* buffer by default)
 bindsym $mod+h exec emacsclient -c
 
@@ -226,6 +231,7 @@ mode "workspace" {
 #   bindsym Escape mode "default"
 # }
 
+# TODO maybe bind: konsole -e $(dmenu ...)
 mode "launcher" {
      bindsym h exec konsole -e ghci; mode "default"
      bindsym s exec $scripts/run-surf; mode "default"

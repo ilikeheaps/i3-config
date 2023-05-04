@@ -233,7 +233,8 @@ mode "launcher" {
      # open Tabs Outliner extension in Chromium
      bindsym o exec chromium-browser --new-window "chrome-extension://eggkanocgddhmamlbiijnphhppkpkmkl/activesessionview.html?type=clone"; mode "default"
      bindsym d append_layout ~/.config/i3/layout-3-column.json; exec $terminal; exec $terminal; exec $terminal; mode "default"
-     bindsym b exec dolphin --new-window ~ ; mode "default"
+     bindsym f exec dolphin --new-window ~ ; mode "default"
+     bindsym shift+f exec $scripts/launch-dolphin.sh ; mode "default"
 
      bindsym Escape mode "default"
 }

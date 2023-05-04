@@ -359,3 +359,24 @@ mode "tablet" {
      bindsym Escape mode "default"
 }
 bindsym $mod+x mode "tablet"
+
+bindsym $mod+c mode "move"
+mode "move" {
+  bindsym $mod+c mode "move-persist"
+  bindsym $mod+$left move left; mode "default"
+  bindsym $mod+$down move down; mode "default"
+  bindsym $mod+$up move up; mode "default"
+  bindsym $mod+$right move right; mode "default"
+
+  bindsym Escape mode "default"
+}
+
+mode "move-persist" {
+  bindsym $mod+$left move left
+  bindsym $mod+$down move down
+  bindsym $mod+$up move up
+  bindsym $mod+$right move right
+
+  bindsym $mod+c mode "default"
+  bindsym Escape mode "default"
+}

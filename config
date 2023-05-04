@@ -273,25 +273,6 @@ mode "insert" {
      bindsym $mod+Escape mode "default"
 }
 
-# TODO could you inherit mode mappings?
-mode "moveFocus" {
-     bindsym $up focus up
-     bindsym $down focus down
-     bindsym $left focus left
-     bindsym $right focus right
-
-     bindsym Escape mode "default"
-}
-
-mode "moveWindow" {
-     bindsym $up focus up
-     bindsym $down focus down
-     bindsym $left focus left
-     bindsym $right focus right
-
-     bindsym Escape mode "default"
-}
-
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%

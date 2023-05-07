@@ -1,5 +1,6 @@
 # -*- eval: (rainbow-mode 1) -*-
 # ^ Emacs settings
+# ^ TODO move outside this file (how?)
 # my i3 config file based on i3 config file (v4)
 # for i3 version 4.18.3 (2020-10-19)
 

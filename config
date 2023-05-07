@@ -62,6 +62,14 @@ bindsym $mod+Shift+Return exec $terminal
 # start eshell
 bindsym $mod+Return exec $eshell
 
+bindsym $mod+k mode "display"
+mode "display" {
+  # switch display input to this (for sharing with another system)
+  bindsym $mod+k exec ddcutil setvcp 0x60 0x0f; mode "default"
+  bindsym $mod+e exec ddcutil setvcp 0x60 0x10; mode "default"
+  bindsym Escape mode "default"
+}
+
 # TODO?
 # rename window/container
 # bindsym $mod+g exec echo `echo foo | dmenu` # $scripts/rename-focused.sh

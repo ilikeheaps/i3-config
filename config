@@ -295,18 +295,19 @@ bar {
         font pango:Fira Mono 14
 }
 
-# screenshots with scrot
-bindsym Print exec scrot $(echo "$HOME/archive/Media/Pictures/Screens/%Y-%m-%d-%H:%M:%S-\$wx\$h.png")
+# screenshots
+bindsym Print exec $scripts/screenshot.sh
 
 bindsym $mod+j mode "screen"
 mode "screen" {
-  bindsym --release a mode "default" ; exec scrot $(echo "$HOME/archive/Media/Pictures/Screens/%Y-%m-%d-%H:%M:%S-\$wx\$h.png")
+  bindsym --release j mode "default" ; exec $scripts/screenshot.sh
+  bindsym --release a mode "default" ; exec $scripts/screenshot.sh
 
-  bindsym --release s mode "default" ; exec scrot -s -f -b $(echo "$HOME/archive/Media/Pictures/Screens/%Y-%m-%d-%H:%M:%S-\$wx\$h.png")
+  bindsym --release s mode "default" ; exec $scripts/screenshot.sh --select
 
-  bindsym --release w mode "default" ; exec scrot -u $(echo "$HOME/archive/Media/Pictures/Screens/%Y-%m-%d-%H:%M:%S-\$wx\$h.png")
+  bindsym --release w mode "default" ; exec $scripts/screenshot.sh --window
 
-  bindsym b mode "default" ; exec dolphin --new-window "$HOME/archive/Media/Pictures/Screens"
+  bindsym b mode "default" ; exec dolphin --new-window "$($scripts/screenshot.sh --print-dir)"
 
   bindsym Escape mode "default"
 }

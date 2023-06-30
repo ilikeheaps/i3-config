@@ -4,7 +4,7 @@
 # TODO? rewrite in Haskell with easy tests
 # TODO other modes: select area/window
 
-screenshotDir="$HOME/archive/Media/Pictures/Screens"
+screenshotDir="$HOME/Media/Pictures/Screens"
 
 function tryOutputPath {
   local suffix="${1:+-$1}"

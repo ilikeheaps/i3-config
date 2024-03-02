@@ -25,6 +25,19 @@ output "Unknown U34G2G4R3 0x00000943" {
   # scale 1.5 # TODO find replacements for X programs before setting this (X gets blurry)
 }
 
+# Having issues with cable/adapter for this one, need to run @120Hz instead of @144Hz
+output "Unknown ASUS XG16A 0x0000879F" {
+  mode 1920x1080@120Hz
+  adaptive_sync off
+  # adaptive_sync on
+}
+
+# 16" portable display from Aliexpress
+output "Unknown ASM-160QC 0x00000125" {
+  mode 2560x1600@119.999Hz
+  scale 1.5
+}
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 #

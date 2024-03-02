@@ -18,6 +18,8 @@ input * {
   xkb_options "eurosign:e"
 }
 ## output settings
+# TODO add some defaults (pick highest resolution, then highest refresh rate for that)
+
 # [Unknown] being AOC
 output "Unknown U34G2G4R3 0x00000943" {
   mode 3440x1440@144.001Hz

@@ -26,6 +26,7 @@ set $middle_button BTN_SIDE
 input $trackball_id {
   scroll_button $scroll_button
   scroll_method on_button_down
+  scroll_factor 0.5
 }
 
 bindsym --whole-window --input-device=$trackball_id $scroll_button nop

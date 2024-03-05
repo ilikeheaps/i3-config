@@ -34,7 +34,7 @@ output "Unknown ASUS XG16A 0x0000879F" {
   # adaptive_sync on
 }
 
-# 16" portable display from Aliexpress
+# 16-inch portable display from Aliexpress
 output "Unknown ASM-160QC 0x00000125" {
   mode 2560x1600@119.999Hz
   scale 1.5

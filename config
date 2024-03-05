@@ -17,6 +17,20 @@ input * {
   xkb_variant "colemak"
   xkb_options "eurosign:e"
 }
+
+# settings for a trackball
+set $trackball_id 1133:4136:Logitech_M570
+set $scroll_button BTN_EXTRA
+set $middle_button BTN_SIDE
+
+input $trackball_id {
+  scroll_button $scroll_button
+  scroll_method on_button_down
+}
+
+bindsym --whole-window --input-device=$trackball_id $scroll_button nop
+bindsym --whole-window --input-device=$trackball_id $middle_button seat seat0 cursor press BTN_MIDDLE
+
 ## output settings
 # TODO add some defaults (pick highest resolution, then highest refresh rate for that)
 

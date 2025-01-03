@@ -262,6 +262,11 @@ mode "resize" {
 # mode for moving workspaces between outputs
 bindsym $mod+v mode "workspace"
 mode "workspace" {
+        bindsym $mod+p workspace next; mode "default"
+        bindsym $mod+w workspace prev; mode "default"
+        bindsym p workspace next
+        bindsym w workspace prev
+
         bindsym $mod+Shift+$left move workspace to output left
         bindsym $mod+Shift+$down move workspace to output down
         bindsym $mod+Shift+$up move workspace to output up

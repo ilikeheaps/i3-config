@@ -12,6 +12,9 @@ exec xsetroot -solid "#333333"
 
 # for sway (i3-compatible Wayland compositor)
 ## input settings
+input * {
+  xkb_layout "pl"
+}
 
 # settings for a trackball
 set $trackball_id 1133:4136:Logitech_M570

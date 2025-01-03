@@ -33,7 +33,9 @@ bindsym --whole-window --input-device=$trackball_id $scroll_button nop
 
 # [Unknown] being AOC
 output "Unknown U34G2G4R3 0x00000943" {
-  mode 3440x1440@144.001Hz
+  # select 100Hz by default for idle energy saving (RX6000 series seems to keep high memory clock above that resolution/refresh)
+  # mode 3440x1440@144.001Hz
+  mode 3440x1440@99.982Hz
   adaptive_sync on
   # scale 1.5 # TODO find replacements for X programs before setting this (X gets blurry)
 }

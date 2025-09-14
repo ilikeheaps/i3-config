@@ -86,8 +86,11 @@ client.background       #ffffff
 
 focus_wrapping no
 
+## tiling exceptions for compatibility
 # For EA Origin (game launcher) -- doesn't work otherwise
 for_window [title="^Origin$"] floating enable
+# Godot IDE has performance issues with tiling (popups)
+for_window [class="^Godot$"] floating enable
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient

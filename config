@@ -10,6 +10,9 @@
 
 exec xsetroot -solid "#333333"
 
+# NixOS configuration for dbus and systemd
+include /etc/sway/config.d/nixos.conf
+
 # for sway (i3-compatible Wayland compositor)
 ## input settings
 input * {

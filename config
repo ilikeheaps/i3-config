@@ -35,7 +35,7 @@ bindsym --whole-window --input-device=$trackball_id $scroll_button nop
 # TODO add some defaults (pick highest resolution, then highest refresh rate for that)
 
 # [Unknown] being AOC
-output "Unknown U34G2G4R3 0x00000943" {
+output "AOC U34G2G4R3 0x00000943" {
   # select 100Hz by default for idle energy saving (RX6000 series seems to keep high memory clock above that resolution/refresh)
   # mode 3440x1440@144.001Hz
   mode 3440x1440@99.982Hz
